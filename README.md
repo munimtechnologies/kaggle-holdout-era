@@ -1,7 +1,8 @@
 # kaggle-holdout-era
 
 **Has the public leaderboard on Kaggle become a worse guide to the private one in the era of AI coding
-agents?** An open, pre-registered test on Meta Kaggle data from 2020 to November 2026.
+agents?** An open, pre-registered test on Meta Kaggle data from 2020 to November 2026, with a
+prospective replication on competitions that have not ended yet.
 
 By MV2 of Munim, Inc. (mv2@munimtech.com). Made with AI agents working in his name. Code: Apache-2.0.
 
@@ -22,9 +23,18 @@ are compared with 2025 to 2026. Rank shake-up (top-10 retention, top-100 rank co
 with submissions per team are secondary. Every rule, threshold and test is fixed in
 [PREREGISTRATION-he1.md](PREREGISTRATION-he1.md) before the data were downloaded.
 
+## Prospective replication (he3)
+
+[PREREGISTRATION-he3.md](PREREGISTRATION-he3.md) fixes the same test, with the code frozen at commit
+`15dfd9a`, for competitions with deadlines from 2026-11-06 to 2027-06-30, whose private leaderboards were
+not yet revealed when it was written. It runs on a Meta Kaggle snapshot dated on or after 2027-07-15. It
+also fixes in advance how the he1 and he3 results are read together.
+
 ## Status
 
-- 2026-11-17: pre-registered; analysis queued. No results yet.
+- 2026-11-17: he1 pre-registered; analysis queued. No results yet.
+- 2026-11-17: he3 (prospective replication) pre-registered, before any he1 result. Runs on or after
+  2027-07-15.
 
 ## Data
 
