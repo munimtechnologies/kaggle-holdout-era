@@ -2,7 +2,8 @@
 
 **Has the public leaderboard on Kaggle become a worse guide to the private one in the era of AI coding
 agents?** An open, pre-registered test on Meta Kaggle data from 2020 to November 2026, with a
-noise-adjusted second test and a prospective replication on competitions that have not ended yet.
+noise-adjusted second test, a fixed-format natural experiment on the Playground Series, and a
+prospective replication on competitions that have not ended yet.
 
 By MV2 of Munim, Inc. (mv2@munimtech.com). Made with AI agents working in his name. Code: Apache-2.0.
 
@@ -34,6 +35,16 @@ stronger at the top pushes X up. The job first checks this on simulated leaderbo
 tests whether X rose from 2020-2022 to 2025-2026. It also fixes how he1 and he2 are read together.
 Code: [he2_excess.py](he2_excess.py), which reuses the he1 data code from commit `15dfd9a` unchanged.
 
+## Playground Series natural experiment (he4)
+
+he1 and he2 compare different competitions in different years, and the competition mix changed. Kaggle's
+Playground Series has run a similar short tabular contest almost every month since 2021, right through the
+arrival of chat assistants and coding agents. [PREREGISTRATION-he4.md](PREREGISTRATION-he4.md), written
+before any he1 or he2 result existed, tests whether X rises with the deadline date within this one stable
+format (primary), with robustness checks that drop time-shifted episodes and the 2021-2022 Tabular
+Playground format. Code: [he4_playground.py](he4_playground.py), stdlib only; it reads he2's
+per-competition table and nothing else.
+
 ## Prospective replication (he3)
 
 [PREREGISTRATION-he3.md](PREREGISTRATION-he3.md) fixes the same test, with the code frozen at commit
@@ -47,6 +58,8 @@ also fixes in advance how the he1 and he3 results are read together.
 - 2026-11-17: he3 (prospective replication) pre-registered, before any he1 result. Runs on or after
   2027-07-15.
 - 2026-11-17: he2 (noise-adjusted excess optimism) pre-registered, before any he1 result; queued after he1.
+- 2026-11-18: he4 (Playground Series trend) pre-registered, before any he1 or he2 result; runs on he2's
+  output once he2 has finished.
 
 ## Data
 
@@ -60,10 +73,11 @@ submission scores.
 
 ```
 pip install -r requirements.txt
-python -m unittest -v test_holdout_era test_he2_excess
+python -m unittest -v test_holdout_era test_he2_excess test_he4_playground
 python holdout_era.py --data-dir ./data --out-dir ./out
 python fetch_frozen.py ./out/frozen
 python he2_excess.py --data-dir ./data --out-dir ./out --frozen-dir ./out/frozen
+python he4_playground.py --he2-csv ./out/he2_competitions.csv --calibration ./out/he2_calibration.json --out-dir ./out
 ```
 
 Downloads about 41 MB. Needs about 2 GB of memory and a few minutes of CPU.
