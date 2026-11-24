@@ -15,6 +15,12 @@ adaptive overfitting to public leaderboards up to 2019. Since then, competitors 
 assistants (late 2022) and agentic coding tools that can write and submit many variants (widespread from
 2025). If any benchmark shows test-set reuse hurting in the agent era, Kaggle's should.
 
+In the lab, 2026 work points both ways: coding agents pressed to raise a visible public score often
+exploit it without improving a hidden private score (Chen et al., arXiv 2604.20200), while Bertran, Roth
+and Wu (arXiv 2606.11045) argue that successful ML strategies are compressible enough that heavy
+benchmark reuse does little harm. This study measures which holds in the field. See
+[RELATED-WORK.md](RELATED-WORK.md).
+
 ## What is measured
 
 For each competition, the public-leaderboard top band (top 2%, at least 10 teams) is compared with
@@ -60,6 +66,8 @@ also fixes in advance how the he1 and he3 results are read together.
 - 2026-11-17: he2 (noise-adjusted excess optimism) pre-registered, before any he1 result; queued after he1.
 - 2026-11-18: he4 (Playground Series trend) pre-registered, before any he1 or he2 result; runs on he2's
   output once he2 has finished.
+- 2026-11-24: related-work review added ([RELATED-WORK.md](RELATED-WORK.md)), still before any result;
+  no published field before/after test was found. he1 and he2 are still waiting for compute.
 
 ## Data
 
@@ -84,4 +92,4 @@ Downloads about 41 MB. Needs about 2 GB of memory and a few minutes of CPU.
 
 ## Licence
 
-Code: Apache-2.0 (see LICENSE). Outputs derived from Meta Kaggle: CC BY-NC-SA 4.0.
+Code: Apache-2.0 (see LICENSE). Text: CC BY 4.0. Outputs derived from Meta Kaggle: CC BY-NC-SA 4.0.
